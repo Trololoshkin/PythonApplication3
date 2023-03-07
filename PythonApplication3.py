@@ -7,6 +7,38 @@ class App(tk.Tk):
         self.title("Trading Bot")
         self.geometry("400x300")
         
+        self.learning_rate_default = 0.001
+        self.training_epochs_default = 100
+        self.batch_size_default = 100
+        self.display_step_default = 1
+        
+     def create_widgets(self):
+        # ...
+
+        # Параметры нейронной сети
+        self.learning_rate_label = tk.Label(self, text='Learning rate:')
+        self.learning_rate_label.grid(row=3, column=0)
+        self.learning_rate_entry = tk.Entry(self)
+        self.learning_rate_entry.insert(tk.END, self.learning_rate_default)
+        self.learning_rate_entry.grid(row=3, column=1)
+
+        self.training_epochs_label = tk.Label(self, text='Training epochs:')
+        self.training_epochs_label.grid(row=4, column=0)
+        self.training_epochs_entry = tk.Entry(self)
+        self.training_epochs_entry.insert(tk.END, self.training_epochs_default)
+        self.training_epochs_entry.grid(row=4, column=1)
+
+        self.batch_size_label = tk.Label(self, text='Batch size:')
+        self.batch_size_label.grid(row=5, column=0)
+        self.batch_size_entry = tk.Entry(self)
+        self.batch_size_entry.insert(tk.END, self.batch_size_default)
+        self.batch_size_entry.grid(row=5, column=1)
+
+        self.display_step_label = tk.Label(self, text='Display step:')
+        self.display_step_label.grid(row=6, column=0)
+        self.display_step_entry = tk.Entry(self)
+        self.display_step_entry.insert(tk.END, self.display_step_default)
+        self.display_step_entry.grid(row=6, column=1)
         # Создаем поля для ввода
         data_path_label = tk.Label(self, text="Data Path:")
         data_path_label.pack()
@@ -23,21 +55,7 @@ class App(tk.Tk):
         self.window_size_entry = tk.Entry(self)
         self.window_size_entry.pack()
         
-        batch_size_label = tk.Label(self, text="Batch Size:")
-        batch_size_label.pack()
-        self.batch_size_entry = tk.Entry(self)
-        self.batch_size_entry.pack()
-        
-        epochs_label = tk.Label(self, text="Epochs:")
-        epochs_label.pack()
-        self.epochs_entry = tk.Entry(self)
-        self.epochs_entry.pack()
-        
-        learning_rate_label = tk.Label(self, text="Learning Rate:")
-        learning_rate_label.pack()
-        self.learning_rate_entry = tk.Entry(self)
-        self.learning_rate_entry.pack()
-        
+                
         prediction_length_label = tk.Label(self, text="Prediction Length:")
         prediction_length_label.pack()
         self.prediction_length_entry = tk.Entry(self)
